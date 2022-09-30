@@ -305,7 +305,7 @@
                                 <div class="tm-bg-dark content-pad">
                                     <h2 class="mb-4">Résultat de la candidature ?</h2>
                                     <p class="mb-4">
-                                        Candidature <b>actuellement en cours d'analyse</b> néanmoins la page sera édité lors du résultat prononcer. <br>
+                                        Candidature <b>actuellement en cours d'analyse</b> depuis <span id="waitDay"></span> jours néanmoins la page sera édité lors du résultat prononcer. <br>
                                         Ne voyez en cette page aucun forcing, juste une manière de pouvoir avoir le résultat de manière permanente même après que le <b><a href="https://shinobicraft.fr/support/tickets/36" target="_blank" title="Voir le ticket sur ShinobiCraft.fr" rel="noopener">ticket site n°36</a></b> sois fermer.
                                     </p>
                                     <a href="assets/img/response_1.png" title="Voir l'image en grande" target="_blank" rel="noopener">
@@ -352,6 +352,14 @@
             myVid.src = randomVideo;
             myVid.load();
             myVid.play();
+            var day = new Date('09/26/2022'); //# wait day last response
+            var t0day = Date.now();
+            const days = (day, t0day) =>{
+                var difference = Date.now() - day.getTime();
+                var TotalDays = Math.ceil(difference / (1000 * 3600 * 24) - 1);
+                return TotalDays;
+            }
+            document.getElementById("waitDay").innerHTML = days(day, t0day);
         </script>
     </body>
 </html>
